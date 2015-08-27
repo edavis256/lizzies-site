@@ -1,5 +1,5 @@
 gulp = require 'gulp'
-config = require '../config.coffee'
+config = require './config.coffee'
 concat = require 'gulp-concat'
 gutil = require 'gulp-util'
 bowerFiles = require 'gulp-bower-files'
