@@ -1,0 +1,16 @@
+{
+  "name": "frontend-bp",
+  "version": "1.0.0",
+  "authors": [
+    "jsnelgro <johnny.snelgrove@gmail.com>"
+  ],
+  "description": "frontend boilerplate",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
