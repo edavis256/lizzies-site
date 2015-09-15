@@ -5,7 +5,9 @@ server = require('browser-sync').create()
 concat = require 'gulp-concat'
 uglify = require 'gulp-uglify'
 gutil = require 'gulp-util'
+filter = require 'gulp-filter'
 bowerFiles = require 'gulp-bower-files'
+templateCache = require 'gulp-angular-templateCache'
 coffee = require 'gulp-coffee'
 sass = require 'gulp-sass'
 
@@ -17,13 +19,17 @@ gulp.task 'coffee', ->
     .on 'error', gutil.log
 
 gulp.task 'sass', ->
-  gulp.src "#{config.styles_main_file}"
+  gulp.src "#{config.app_path}/**/*.sass"
   .pipe sass()
+  .pipe concat(config.css_main_file)
   .pipe gulp.dest "#{config.web_path}/css"
   .on 'error', gutil.log
 
-# TODO: add support for concating html files
 gulp.task 'html', ->
+  gulp.src "#{config.app_path}/components/**/*.html"
+    .pipe templateCache(module: "#{config.app_name}")
+    .pipe gulp.dest "#{config.web_path}/js"
+    .on 'error', gutil.log
   gulp.src "#{config.app_path}/index.html"
     .pipe gulp.dest "#{config.web_path}"
     .on 'error', gutil.log
@@ -33,7 +39,7 @@ gulp.task 'assets', ->
     .pipe gulp.dest "#{config.web_path}/assets"
     .on 'error', gutil.log
 
-gulp.task 'vendor', ->
+gulp.task 'vendor', ['bower'], ->
   if fs.existsSync "#{config.vendor_path}"
     gulp.src "#{config.vendor_path}/**/*.js"
       .pipe concat "#{config.vendor_main_file}"
@@ -64,11 +70,11 @@ gulp.task 'minify', ['vendor', 'bower:js', 'coffee'], ->
     .pipe gulp.dest "#{config.web_path}/js"
     .on 'error', gutil.log
 
-gulp.task 'build', ['coffee','sass','html','vendor','minify','assets']
+gulp.task 'build', ['coffee','sass','html','vendor','assets']
 
 gulp.task 'watch', ['build'], ->
   # TODO: could probably split up and make more efficent
-  gulp.watch "#{config.app_path}/**", ['build']
+  gulp.watch "#{config.app_path}/**", ['coffee','sass','html','assets']
 
 gulp.task 'serve', ['build'], ->
   server.init server: "#{config.web_path}"
@@ -76,4 +82,4 @@ gulp.task 'serve', ['build'], ->
   gulp.watch("#{config.app_path}/**").on('change', server.reload)
 
 
-gulp.task 'default', ['build', 'watch']
+gulp.task 'default', ['serve']
