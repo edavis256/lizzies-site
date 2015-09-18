@@ -2,7 +2,7 @@ app.directive 'appHeader', ->
   return {
     scope: {}
     restrict: 'E'
-    templateUrl: 'appHeader/appHeader.html'
+    templateUrl: 'components/app-header/app-header.html'
     link: ($scope, element, attrs)->
-      console.log "here's the appHeader crew", $scope, element, attrs
+      $scope.test = true
   }

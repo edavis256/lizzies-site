@@ -1,0 +1,10 @@
+<div id="users">
+  <div>
+  <ul>
+    <li ui-sref-active="selected" ng-repeat="user in users">
+      <a ui-sref="users.detail({id: user.id})">{{user.name}}</a>
+    </li>
+  </ul>
+  </div>
+  <div class="detail" ui-view></div>
+</div>

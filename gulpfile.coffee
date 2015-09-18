@@ -11,6 +11,7 @@ templateCache = require 'gulp-angular-templateCache'
 coffee = require 'gulp-coffee'
 sass = require 'gulp-sass'
 
+# TODO: add source maps for coffee task and vendor task
 gulp.task 'coffee', ->
   gulp.src "#{config.app_path}/**/*.coffee"
     .pipe coffee(bare: true)
@@ -26,7 +27,7 @@ gulp.task 'sass', ->
   .on 'error', gutil.log
 
 gulp.task 'html', ->
-  gulp.src "#{config.app_path}/components/**/*.html"
+  gulp.src "#{config.app_path}/{components,routes}/**/*.html"
     .pipe templateCache(module: "#{config.app_name}")
     .pipe gulp.dest "#{config.web_path}/js"
     .on 'error', gutil.log
