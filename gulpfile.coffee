@@ -35,7 +35,6 @@ gulp.task 'html', ->
     .pipe gulp.dest "#{config.web_path}"
     .on 'error', gutil.log
 
-# TODO: for some reason this isn't copying assets into _public
 gulp.task 'assets', ->
   gulp.src "#{config.assets_path}/**"
     .pipe gulp.dest "#{config.web_path}/assets"
