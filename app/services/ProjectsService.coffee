@@ -1,21 +1,36 @@
-app.factory 'ProjectsService', ->
-  projects = []
-  names = ['Art', 'cat', 'writing', 'stuff', 'things']
-  # TODO: make this pull from a file that lizzie can write
-  # and generate array from that file.
-  for i in [0..4]
-    name = "
-    #{names[Math.floor((Math.random()*names.length)%names.length)]}
-    #{names[Math.floor((Math.random()*names.length)%names.length)]}"
-    project =
-      id: i
-      name: name
-      description: "#{name} is just another cool project of mine!"
-    projects.push project
+app.factory 'ProjectsService', ['$http', ($http)->
+  @projects = []
+  # TODO: add function to undasherize, uncamelcase, and un-underscore filenames
+  getFiles = (results)->
+    projects = []
+    files = results.split('\n')
+    i = 0
+    files.filter (file)->
+      file = file.trim()
+      if file.endsWith('.md')
+        data = {
+          id: i
+          name: file.substr 0, (file.length - 3)
+          path: "assets/projects/#{file}"
+        }
+        projects.push data
+        i++
+        return data
+    @projects = projects
+    return projects
+
+  getProjects = (cb)->
+    $http(
+      method: 'GET'
+      url: 'assets/projects/index.md'
+    ).then (res)->
+      projects = getFiles(res.data)
+      cb(projects)
 
   return {
     list: ->
-      return projects
+      getProjects (projects)->
+        return projects
     find: (id)->
       if projects[id]? then return projects[id]
       return {
@@ -24,3 +39,4 @@ app.factory 'ProjectsService', ->
         description: 'project info goes here'
       }
   }
+]
