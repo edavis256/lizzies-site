@@ -14,7 +14,7 @@ sass = require 'gulp-sass'
 # TODO: add source maps for coffee task and vendor task
 gulp.task 'coffee', ->
   gulp.src "#{config.app_path}/**/*.coffee"
-    .pipe coffee(bare: true)
+    .pipe coffee()
     .pipe concat(config.app_main_file)
     .pipe gulp.dest "#{config.web_path}/js"
     .on 'error', gutil.log
@@ -35,6 +35,7 @@ gulp.task 'html', ->
     .pipe gulp.dest "#{config.web_path}"
     .on 'error', gutil.log
 
+# TODO: for some reason this isn't copying assets into _public
 gulp.task 'assets', ->
   gulp.src "#{config.assets_path}/**"
     .pipe gulp.dest "#{config.web_path}/assets"

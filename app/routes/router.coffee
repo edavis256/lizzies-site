@@ -2,22 +2,25 @@ app.config ['$stateProvider', '$urlRouterProvider',
 ($stateProvider, $urlRouterProvider)->
   $urlRouterProvider.otherwise '/'
   $stateProvider
-
-    .state 'about',
-      url: '/about'
-      templateUrl: 'routes/about/about.html'
-
     .state 'home',
       url: '/'
       templateUrl: 'routes/home/home.html'
 
-    .state 'users',
-      url: '/users'
-      templateUrl: 'routes/users/users.html'
-      controller: 'UsersController'
+    .state 'contact',
+      url: '/contact'
+      templateUrl: 'routes/contact/contact.html'
 
-    .state 'users.detail',
+    .state 'cv',
+      url: '/cv'
+      templateUrl: 'routes/cv/cv.html'
+
+    .state 'projects',
+      url: '/projects'
+      templateUrl: 'routes/projects/projects.html'
+      controller: 'ProjectsController'
+
+    .state 'projects.detail',
       url: '/detail/:id'
-      templateUrl: 'routes/users/partials/user-detail.html'
-      controller: 'UsersDetailController'
+      templateUrl: 'routes/projects/partials/project-detail.html'
+      controller: 'ProjectsDetailController'
 ]

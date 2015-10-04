@@ -1,19 +1,73 @@
-.app-header
-  border-bottom: 1px solid black
-  background-color: #F2F2F2
-  width: 100%
-  padding: 20px
+.header
+  padding: 30px
+  display: flex
+  align-items: center
+  margin-bottom: 60px
   h1
-    width: 25%
-    display: inline-block
-  ul
-    display: inline-block
-    float: right
-    margin-right: 25px
+    flex-grow: 1
+    text-transform: uppercase
+    font-weight: 300
+    letter-spacing: 5px
+  .nav
     li
-      display: inline-block
+      padding: 0 10px
+      display: inline-flex
+      flex-grow: 2
+      font-size: 18px
+      font-weight: 200
+      text-transform: uppercase
       a
         text-decoration: none
-        color: black
-        font-size: 20px
-        padding: 0 10px
+        color: #080808
+
+
+// .header, .nav
+//   display: -webkit-flex
+//   display: flex
+//   -webkit-flex-direction: column
+//   flex-direction: column
+//
+// .header
+//   justify-content: space-between
+//
+// .nav
+//   -webkit-flex: 1
+//   flex: 1
+//   -webkit-justify-content: space-around
+//   justify-content: space-around
+//
+// @media all and (min-width: 640px)
+//   .header, .nav
+//     -webkit-flex-direction: row
+//     flex-direction: row
+//
+// @media all and (min-width: 1030px)
+//   .nav
+//     -webkit-flex: none
+//     flex: none
+//
+// .header
+//   padding: 20px 0
+//   margin: 0 auto
+//
+// .logo
+//   width: 195px
+//   white-space: nowrap
+//   overflow: hidden
+//
+// .nav
+//   list-style: none
+//   li
+//     margin: 12px 0 12px 28px
+//     a
+//       text-decoration: none
+//       color: #000
+//       font-size: 12px
+//       text-transform: uppercase
+//       &:hover
+//         color: rgba(255, 255, 255, 0.7)
+//
+// @media all and (min-width: 1030px)
+//   .header
+//     width: 1030px
+//     min-width: 768px
