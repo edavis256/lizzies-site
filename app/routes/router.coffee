@@ -18,9 +18,4 @@ app.config ['$stateProvider', '$urlRouterProvider',
       url: '/projects'
       templateUrl: 'routes/projects/projects.html'
       controller: 'ProjectsController'
-
-    .state 'projects.detail',
-      url: '/detail/:id'
-      templateUrl: 'routes/projects/partials/project-detail.html'
-      controller: 'ProjectsDetailController'
 ]

@@ -1,1 +1,6 @@
-<btf-markdown ng-include=selectedProject.path></btf-markdown>
+<!-- TODO: make this a modal popup -->
+<md-dialog aria-label="info">
+  <md-dialog-content class="project-details-content md-dialog-content" style="max-width:800px;max-height:810px;">
+    <btf-markdown ng-include=selectedProject.path></btf-markdown>
+  </md-dialog-content>
+</md-dialog>

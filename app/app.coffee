@@ -1,1 +1,4 @@
-window.app = angular.module 'app', ['ui.router', 'btford.markdown']
+window.app = angular.module 'app', ['ui.router',
+'btford.markdown',
+'ngMaterial'
+]

@@ -1,4 +1,4 @@
-app.controller 'ProjectsDetailController', ['$scope', '$stateParams', 'ProjectsService',
-($scope, $stateParams, ProjectsService)->
-  $scope.selectedProject = ProjectsService.find($stateParams.id)
+app.controller 'ProjectsDetailController', ['$scope', 'ProjectsService', 'project'
+($scope, ProjectsService, project)->
+  $scope.selectedProject = project
 ]

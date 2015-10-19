@@ -11,7 +11,7 @@ app.factory 'ProjectsService', ['$http', ($http)->
         data = {
           id: i
           name: file.substr 0, (file.length - 3)
-          path: "assets/projects/#{file}"
+          path: "assets/text/projects/#{file}"
         }
         projects.push data
         i++
@@ -22,7 +22,7 @@ app.factory 'ProjectsService', ['$http', ($http)->
   getProjects = (cb)->
     $http(
       method: 'GET'
-      url: 'assets/projects/index.md'
+      url: 'assets/text/projects/index.md'
     ).then (res)->
       projects = getFiles(res.data)
       cb(projects)
@@ -31,12 +31,5 @@ app.factory 'ProjectsService', ['$http', ($http)->
     list: ->
       getProjects (projects)->
         return projects
-    find: (id)->
-      if projects[id]? then return projects[id]
-      return {
-        id: id,
-        name: 'anonymous',
-        description: 'project info goes here'
-      }
   }
 ]
