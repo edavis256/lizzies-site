@@ -1,5 +1,10 @@
 <div id="projects">
-    <md-grid-list
+  <ul>
+    <li ng-repeat="project in projects">
+      <a ng-click="redirectOrShowProjectInfo($event, project)">{{project.name}}</a>
+    </li>
+  </ul>
+    <!-- <md-grid-list
       md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8"
       md-row-height-gt-md="1:1" md-row-height="1:1"
       md-gutter-gt-md="16px" md-gutter-gt-sm="8px"
@@ -16,5 +21,5 @@
           </div>
         </a>
       </md-grid-tile>
-    </md-grid-list>
+    </md-grid-list> -->
 </div>
