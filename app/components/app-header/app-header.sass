@@ -1,3 +1,5 @@
+@import "../../mixins.sass"
+
 .header
   padding: 30px
   display: flex
@@ -25,3 +27,19 @@
       a
         text-decoration: none
         color: #080808
+
+.header
+  +screen(mobile)
+    display: block
+    text-align: center
+    margin: 10px
+    padding: 10px
+    .logo
+      display: block
+      width: 100%
+    .nav
+      padding-left: 0
+      display: block
+      width: 100%
+      li
+        display: inline-block
