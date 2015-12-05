@@ -9,9 +9,16 @@ ul {
   overflow: hidden;
   position: fixed; }
 
+.main-wrapper {
+  max-width: 1100px;
+  margin: 0 auto; }
+
 
 #content {
   margin: 25px; }
+
+.footer {
+  text-align: center; }
 
 .header {
   padding: 30px;
@@ -55,9 +62,6 @@ ul {
       width: 100%; }
       .header .nav li {
         display: inline-block; } }
-
-.footer {
-  text-align: center; }
 
 .project-item .pi-title {
   cursor: pointer;
@@ -108,14 +112,6 @@ ul {
 #about h1 {
   text-align: center; }
 
-
-#projects {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; }
-
 #home .img-wrapper {
   text-align: center; }
 
@@ -127,3 +123,11 @@ ul {
 
 #home .personal-info h1, #home .personal-info h2, #home .personal-info h3, #home .personal-info h4, #home .personal-info h5 {
   text-align: center; }
+
+
+#projects {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }

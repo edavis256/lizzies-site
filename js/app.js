@@ -4,6 +4,29 @@
 }).call(this);
 
 (function() {
+  app.config([
+    '$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+      $urlRouterProvider.otherwise('/');
+      return $stateProvider.state('home', {
+        url: '/',
+        templateUrl: 'routes/home/home.html'
+      }).state('contact', {
+        url: '/contact',
+        templateUrl: 'routes/contact/contact.html'
+      }).state('cv', {
+        url: '/cv',
+        templateUrl: 'routes/cv/cv.html'
+      }).state('projects', {
+        url: '/projects',
+        templateUrl: 'routes/projects/projects.html',
+        controller: 'ProjectsController'
+      });
+    }
+  ]);
+
+}).call(this);
+
+(function() {
   app.factory('ProjectsService', [
     '$http', function($http) {
       var getFiles, getProjects, handleLink, handleMd;
@@ -70,29 +93,6 @@
 }).call(this);
 
 (function() {
-  app.config([
-    '$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.otherwise('/');
-      return $stateProvider.state('home', {
-        url: '/',
-        templateUrl: 'routes/home/home.html'
-      }).state('contact', {
-        url: '/contact',
-        templateUrl: 'routes/contact/contact.html'
-      }).state('cv', {
-        url: '/cv',
-        templateUrl: 'routes/cv/cv.html'
-      }).state('projects', {
-        url: '/projects',
-        templateUrl: 'routes/projects/projects.html',
-        controller: 'ProjectsController'
-      });
-    }
-  ]);
-
-}).call(this);
-
-(function() {
   app.directive('appContent', function() {
     return {
       scope: {},
@@ -106,20 +106,6 @@
       ],
       link: function(scope, el, attrs, ctrl, transclude) {
         return el.find('.transContent').append(transclude());
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  app.directive('appHeader', function() {
-    return {
-      scope: {},
-      restrict: 'E',
-      templateUrl: 'components/app-header/app-header.html',
-      link: function($scope, element, attrs) {
-        return $scope.test = true;
       }
     };
   });
@@ -141,6 +127,20 @@
       };
     }
   ]);
+
+}).call(this);
+
+(function() {
+  app.directive('appHeader', function() {
+    return {
+      scope: {},
+      restrict: 'E',
+      templateUrl: 'components/app-header/app-header.html',
+      link: function($scope, element, attrs) {
+        return $scope.test = true;
+      }
+    };
+  });
 
 }).call(this);
 
