@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: Helvetica; }
+
+ul {
+  list-style: none; }
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed; }
+
+
+#content {
+  margin: 25px; }
+
+.header {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 35px;
+  margin-right: 35px;
+  border-bottom: 1px solid rgba(192, 192, 192, 0.35); }
+  .header .logo {
+    flex-grow: 1;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 5px; }
+    .header .logo a {
+      text-decoration: none;
+      color: #080808; }
+  .header .nav li {
+    padding: 0 10px;
+    display: inline-flex;
+    flex-grow: 2;
+    font-size: 18px;
+    font-weight: 200;
+    text-transform: uppercase; }
+    .header .nav li a {
+      text-decoration: none;
+      color: #080808; }
+
+@media only screen and (max-width: 700px) {
+  .header {
+    display: block;
+    text-align: center;
+    margin: 10px;
+    padding: 10px; }
+    .header .logo {
+      display: block;
+      width: 100%; }
+    .header .nav {
+      padding-left: 0;
+      display: block;
+      width: 100%; }
+      .header .nav li {
+        display: inline-block; } }
+
+.footer {
+  text-align: center; }
+
+.project-item .pi-title {
+  cursor: pointer;
+  height: 100px;
+  width: 200px;
+  border: 1px solid black;
+  margin: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.project-item .md-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(50, 50, 50, 0.5); }
+  .project-item .md-modal .pi-content {
+    padding: 20px;
+    padding-top: 0;
+    margin: 5% auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 75vh;
+    width: 75vw;
+    overflow: scroll;
+    background-color: white; }
+    .project-item .md-modal .pi-content .controls {
+      position: fixed;
+      background-color: white;
+      width: 75vw;
+      padding: 20px 0; }
+      .project-item .md-modal .pi-content .controls span {
+        cursor: pointer; }
+    .project-item .md-modal .pi-content .user-content {
+      padding-top: 40px; }
+    .project-item .md-modal .pi-content h1 {
+      text-align: center; }
+    .project-item .md-modal .pi-content img {
+      max-width: 100%; }
+
+#about h1 {
+  text-align: center; }
+
+#about h1 {
+  text-align: center; }
+
+
+#projects {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+#home .img-wrapper {
+  text-align: center; }
+
+#home img {
+  width: 100%;
+  max-height: 300px;
+  max-width: 98%;
+  object-fit: cover; }
+
+#home .personal-info h1, #home .personal-info h2, #home .personal-info h3, #home .personal-info h4, #home .personal-info h5 {
+  text-align: center; }
