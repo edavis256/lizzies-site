@@ -112,6 +112,7 @@ ul {
 #about h1 {
   text-align: center; }
 
+
 #home .img-wrapper {
   text-align: center; }
 
@@ -123,7 +124,6 @@ ul {
 
 #home .personal-info h1, #home .personal-info h2, #home .personal-info h3, #home .personal-info h4, #home .personal-info h5 {
   text-align: center; }
-
 
 #projects {
   display: flex;
