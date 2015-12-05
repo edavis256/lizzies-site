@@ -10,6 +10,11 @@ bowerFiles = require 'gulp-bower-files'
 templateCache = require 'gulp-angular-templateCache'
 coffee = require 'gulp-coffee'
 sass = require 'gulp-sass'
+ghPages = require 'gulp-gh-pages'
+
+gulp.task 'deploy', ->
+  return gulp.src './_public/**/*'
+    .pipe ghPages()
 
 # TODO: add source maps for coffee task and vendor task
 gulp.task 'coffee', ->
