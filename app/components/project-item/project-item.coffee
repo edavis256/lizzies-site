@@ -1,4 +1,4 @@
-app.directive 'projectItem', ->
+app.directive 'projectItem', ['$window', ($window)->
   return {
     scope: {}
     templateUrl: 'components/project-item/project-item.html'
@@ -10,11 +10,14 @@ app.directive 'projectItem', ->
         $scope.modalVisible = !$scope.modalVisible
         body = document.getElementsByTagName('body')[0]
         angular.element(body).toggleClass('no-scroll')
+        return true
 
       $scope.handleClicked = (e)->
         if $scope.data.type == 'link'
-          window.location = $scope.data.path
+          $window.open($scope.data.path)
         else
           $scope.toggleModal()
+        return true
 
   }
+]
